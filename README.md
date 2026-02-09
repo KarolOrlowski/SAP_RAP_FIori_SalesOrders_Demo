@@ -24,6 +24,10 @@ Creating an email after closing a Sales Order (completed status) containing the 
 
 Maybe I haven't forgotten anything :)
 
+<img width="1656" height="794" alt="image" src="https://github.com/user-attachments/assets/3e192a1b-6b1a-4e17-99f6-a49256d98873" />
+
+Demo:
+
 https://www.youtube.com/watch?v=I29I7jU-0EU
 
 
