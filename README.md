@@ -1,9 +1,11 @@
+
 # SAP_RAP_FIori_SalesOrders_Demo
 Demo FIori app for Sales Orders  created using SAP RAP /  CDS / ABAP 
 
 Taking advantage of my free time, I've created a sample Fiori app using CDS/SAP RAP/ABAP. I invite you to collaborate :)
 
 Used technics:
+
 
 Reading and writing to the database
 CRUD
@@ -16,6 +18,8 @@ Composition
 Determinations
 Validations
 Draft 
+Etag
+Numbering
 Criticality
 Generating sales order numbers
 Using Message class
