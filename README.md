@@ -7,23 +7,26 @@ Taking advantage of my free time, I've created a sample Fiori app using CDS/SAP 
 Used technics:
 
 
-Reading and writing to the database
-CRUD
-List Page
-Object Page
-Search
-Value Help
-Associations
-Composition
-Determinations
-Validations
-Draft 
-Etag
-Numbering
-Criticality
-Generating sales order numbers
-Using Message class
-Creating an email after closing a Sales Order (completed status) containing the generated attachments: Sales Order status and invoice 
+## Features
+
+- Reading and writing to the database  
+- CRUD operations  
+- List Page  
+- Object Page  
+- Search  
+- Value Help  
+- Associations  
+- Composition  
+- Determinations  
+- Validations  
+- Draft handling  
+- ETag support  
+- Numbering  
+- Criticality indicators  
+- Generating sales order numbers  
+- Using Message class  
+- Creating an email after closing a Sales Order (completed status)  
+  - Includes generated attachments: Sales Order status and invoice
 
 
 Maybe I haven't forgotten anything :)
