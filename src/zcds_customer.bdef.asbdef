@@ -1,0 +1,25 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for ZCDS_Customer alias Customer
+ implementation in class zbp_cds_customer unique
+persistent table zcustomer
+lock master total etag lastchangedat
+//lock master
+authorization master ( instance )
+draft table zcustomer_dr
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+//field (readonly:update) customer_name;
+
+draft action Edit;
+draft action Activate optimized;
+draft action Discard;
+draft action Resume;
+draft determine action Prepare;
+}

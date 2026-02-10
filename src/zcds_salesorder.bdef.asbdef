@@ -1,0 +1,85 @@
+managed implementation in class ZBP_I_SalesOrder unique;
+strict ( 2 );
+with draft;
+
+
+define behavior for ZCDS_SalesOrder alias SalesOrder
+implementation in class ZBP_I_SalesOrder unique
+persistent table zsalesorder
+lock master total etag lastchangedat
+draft table zsalesorder_dr
+authorization master ( instance )
+with additional save
+{
+
+  action ( features : instance ) Add result [1] $self;
+
+
+  create;
+  update;
+  delete;
+
+  association _Attachments { create;  with draft; }
+
+  field ( numbering : managed ) salesorderuuid;
+  field ( readonly ) salesorder_id;
+  field ( mandatory ) description;
+  field ( mandatory ) status;
+  field ( mandatory ) status_text;
+  field ( mandatory ) customer_name;
+  field ( mandatory ) order_date;
+  field ( mandatory ) total_price;
+  field ( readonly ) customer_name_salesord;
+
+
+
+  validation validate_mandatory_fields on save { create; update; field order_date; field status; field total_price; field description; }
+
+
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation validate_mandatory_fields;
+  }
+
+  determination gen_num_salesorder_id on save { create; update; }
+
+
+
+}
+
+define behavior for ZCDS_SO_Attachment alias Attachments
+persistent table zso_attach
+lock dependent by _SalesOrder
+draft table zso_attach_d
+authorization dependent by _SalesOrder
+etag master LastChangedAt
+{
+
+
+
+
+  update;
+  delete;
+
+  field ( readonly : update ) ParentUuid;
+  field ( numbering : managed ) AttachUuid;
+
+  association _SalesOrder { with draft; }
+
+
+  mapping for zso_attach
+    {
+      AttachUuid    = attach_uuid;
+      ParentUuid    = parent_uuid;
+      AttachmentID  = attachment_id;
+      MimeType      = MimeType;
+      Filename      = Filename;
+      Comments      = comments;
+      LastChangedAt = last_changed_at;
+    }
+}

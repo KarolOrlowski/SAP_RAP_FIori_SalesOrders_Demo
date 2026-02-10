@@ -1,0 +1,44 @@
+projection;
+strict ( 2 );
+use draft;
+
+
+define behavior for ZC_SalesOrderWithCustomer
+
+
+{
+
+
+
+use action Add;
+
+use action Edit;
+use action Activate;
+use action Discard;
+use action Resume;
+use action Prepare;
+
+
+
+
+  use create;
+  use update;
+  use delete;
+
+  use association _Attachments { create; with draft; }
+
+
+}
+
+define behavior for ZC_SO_Attachment_Proj
+
+
+{
+
+
+use update;
+use delete;
+
+use association _SalesOrder { with draft; }
+
+}

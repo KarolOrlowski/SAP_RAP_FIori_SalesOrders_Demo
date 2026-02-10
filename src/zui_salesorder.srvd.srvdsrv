@@ -1,0 +1,5 @@
+@EndUserText.label: 'Sales Order Service Definition'
+define service ZUI_SalesOrder {
+  expose ZC_SalesOrderWithCustomer;
+  expose ZC_SO_Attachment_Proj;
+}
